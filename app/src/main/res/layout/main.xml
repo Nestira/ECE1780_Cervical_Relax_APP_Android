@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/topLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.06"
+        android:id="@+id/mainApp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.06"
+            android:id="@+id/window">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/pauseView"
+                android:weightSum="1">
+
+                <com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSourcePreview
+                    android:id="@+id/preview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="413dp"
+                    android:weightSum="1"
+                    android:layout_weight="0.76">
+
+                  <com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay
+                      android:id="@+id/faceOverlay"
+                      android:layout_width="wrap_content"
+                      android:layout_height="421dp"
+                      android:layout_weight="0.27" />
+
+                </com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSourcePreview>
+
+                <TextView
+                    android:text="Adjust your head into the circle."
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:id="@+id/pauseHint"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_blue_light"
+                android:id="@+id/gameView"
+                android:visibility="gone">
+
+                <ImageSwitcher
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/b_next"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/imageSwitcher"
+                    android:layout_alignParentBottom="true" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@android:color/transparent"
+                    android:id="@+id/instruction_circle" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/test"
+                    android:gravity="center"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/ic_menu_mylocation"
+                    android:id="@+id/cursor"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="53dp"
+                    app:srcCompat="@drawable/soundoff"
+                    android:id="@+id/soundOff"
+                    android:clickable="true" />
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="53dp"
+                    app:srcCompat="@drawable/soundon"
+                    android:id="@+id/soundOn"
+                    android:visibility="gone"
+                    android:clickable="true" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:id="@+id/pauseButton"
+            android:text="Relax My Cervical Spine!"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_orange_light"
+        android:id="@+id/finishView"
+        android:visibility="gone">
+
+        <Button
+            android:text="My cervical spine is relaxed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/exit"
+            android:layout_below="@+id/redo"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp" />
+
+        <Button
+            android:text="I want to do it again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:id="@+id/redo"
+            android:layout_below="@+id/finishText"
+            android:layout_alignStart="@+id/exit"
+            android:layout_alignEnd="@+id/exit"
+            android:textSize="18sp" />
+
+        <TextView
+            android:text="You have finished the exercise!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="159dp"
+            android:id="@+id/finishText"
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_orange_light"
+        android:id="@+id/welcome"
+        android:visibility="visible">
+
+        <TextView
+            android:text="Cervical Spine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_above="@+id/welcomeButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="96dp"
+            android:textSize="36sp" />
+
+        <TextView
+            android:text="Relax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="42dp"
+            android:id="@+id/textView2"
+            android:textSize="36sp"
+            android:layout_above="@+id/welcomeButton"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:text="Start"
+            android:layout_width="150dp"
+            android:id="@+id/welcomeButton"
+            android:layout_height="100dp"
+            android:textSize="36sp"
+            android:layout_marginBottom="188dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:text="v1.0 by Shuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/version"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</FrameLayout>
